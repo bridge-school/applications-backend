@@ -1,10 +1,10 @@
-const express = require("express");
+const express = require('express');
 
-const { applicationsController } = require("./applications.controller");
+const { applicationsController } = require('./applications.controller');
 
 const router = express.Router();
 
-router.get("", applicationsController);
+router.get('', applicationsController);
 
 module.exports = {
   applicationsRouter: router,
