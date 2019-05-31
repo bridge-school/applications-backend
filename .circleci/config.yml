@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
+        run:
+          name: Get Config
+          command: .circleci/scripts/get_config.sh $BACKEND_BUCKET_ID $FIREBASE_BUCKET_ID $TEAM_NAME
       - save_cache:
           name: Save NPM Package Cache
           key: npm-packages-{{ .Branch }}-{{ checksum "package.json" }}
