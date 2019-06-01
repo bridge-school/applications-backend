@@ -12,6 +12,7 @@ const applicationsCurrentController = (req, res) => {
     .get()
     .then(snapshot => {
       res.json({
+        // Filter out the expired, or future cohorts.
         data: snapshot.docs.filter(doc => {
           // Get the date values from each document
           let { date_open, date_closed } = doc.data();
@@ -20,8 +21,7 @@ const applicationsCurrentController = (req, res) => {
 
           // Do a comparison to return whether the cohort is current.
           return date_open_date <= now && now < date_closed_date;
-
-          // Filter out the expired, or future cohorts.
+          
         }).map(doc => {
           let { cohort_name, cohort_type, cohort_slug } = doc.data();
 
