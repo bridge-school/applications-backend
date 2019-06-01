@@ -6,7 +6,11 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
+const settings = { timestampsInSnapshots: true };
+
+
 const db = admin.firestore();
+admin.firestore().settings(settings);
 
 // import the db from any file to access firebase!
 module.exports = db;
