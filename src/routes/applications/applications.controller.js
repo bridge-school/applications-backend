@@ -7,12 +7,14 @@ const db = require('../../db/index');
  * 
  * Returns the all cohort applications. 
  */
+
 const applicationsController = (req, res) => {
   db.collection("cohorts")
     .get()
     .then(snapshot => {
       res.json({
         data: snapshot.docs.map(doc => {
+
           // Destructuring the doc data in order to only pull what
           // we want to display on the index page.
           let { cohort_name, cohort_type, cohort_slug } = doc.data();
@@ -29,8 +31,6 @@ const applicationsController = (req, res) => {
     }).catch(error => {
       console.log("Error getting documents: ", error);
     });
-
-  //return res.json(testData);
 };
 
 module.exports = {
