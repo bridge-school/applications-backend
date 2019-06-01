@@ -21,7 +21,7 @@ const applicationsCurrentController = (req, res) => {
 
           // Do a comparison to return whether the cohort is current.
           return date_open_date <= now && now < date_closed_date;
-
+          
         }).map(doc => {
           let { cohort_name, cohort_type, cohort_slug } = doc.data();
 

@@ -3,6 +3,7 @@ const express = require('express');
 const { applicationsController } = require('./applications.controller');
 const { applicationsCurrentController } = require('./applications.current.controller');
 const { applicationsSingleController } = require('./applications.single.controller');
+
 const router = express.Router();
 
 router.get('/current', applicationsCurrentController);
