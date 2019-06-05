@@ -17,12 +17,12 @@ const applicationsController = (req, res) => {
 
           // Destructuring the doc data in order to only pull what
           // we want to display on the index page.
-          let { cohort_name, cohort_type, cohort_slug } = doc.data();
+          let { cohortName, cohortType, cohortSlug } = doc.data();
           return {
             id: doc.id,
-            cohort_name,
-            cohort_type,
-            cohort_slug
+            cohortName,
+            cohortType,
+            cohortSlug
           }
         })
 
