@@ -1,14 +1,14 @@
 const express = require('express');
 
-const { applicationsController } = require('./applications.controller');
-const { applicationsCurrentController } = require('./applications.current.controller');
-const { applicationsSingleController } = require('./applications.single.controller');
+const { allApplications } = require('./controller/allApplications');
+const { currentApplications } = require('./controller/currentApplications');
+const { singleApplication } = require('./controller/singleApplication');
 
 const router = express.Router();
 
-router.get('/current', applicationsCurrentController);
-router.get('/:applicationId', applicationsSingleController); //applications/ILSs8fqjvp79QgVfsqXk
-router.get('', applicationsController);
+router.get('/current', currentApplications);
+router.get('/:applicationId', singleApplication); //  /applications/DM7kUT8CCS8tE9wzn9pv
+router.get('/', allApplications);
 
 module.exports = {
   applicationsRouter: router,

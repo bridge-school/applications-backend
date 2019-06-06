@@ -1,20 +1,19 @@
-const db = require('../../db/index');
+const db = require('../../../db/index');
 
 /**
- * 
- * @param {*} req 
+ *
+ * @param {*} req
  * @param {*} res
- * 
- * Returns the all cohort applications. 
+ *
+ * Returns the all cohort applications.
  */
 
-const applicationsController = (req, res) => {
-  db.collection("cohorts")
+const allApplications = (req, res) => {
+  db.collection('cohorts')
     .get()
     .then(snapshot => {
       res.json({
         data: snapshot.docs.map(doc => {
-
           // Destructuring the doc data in order to only pull what
           // we want to display on the index page.
           let { cohortName, cohortType, cohortSlug } = doc.data();
@@ -22,17 +21,16 @@ const applicationsController = (req, res) => {
             id: doc.id,
             cohortName,
             cohortType,
-            cohortSlug
-          }
-        })
-
+            cohortSlug,
+          };
+        }),
       });
-
-    }).catch(error => {
-      console.log("Error getting documents: ", error);
+    })
+    .catch(error => {
+      console.log('Error getting documents: ', error);
     });
 };
 
 module.exports = {
-  applicationsController,
+  allApplications,
 };
