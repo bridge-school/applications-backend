@@ -9,12 +9,14 @@ const { errorHandler } = require('./middleware/error-handler');
 // Create a new express application instance
 const app = express();
 
+app.use(express.json()); // for parsing application/json
+
 // The port the express app will listen on
 const port = process.env.PORT || 8081;
 
 logger.info('🤖 Initializing middleware');
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
