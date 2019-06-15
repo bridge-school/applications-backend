@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "NODE_ENV='test' jest --watch",
+    "test": "jest",
     "start:local": "nodemon src/index.js",
     "test:watch": "jest --watch"
   },
