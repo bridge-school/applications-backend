@@ -15,10 +15,7 @@ const singleApplication = (req, res) => {
     .then(doc => {
       // Check if the application exists
       if (!doc.exists) {
-        // Just return empty data. TODO: decide with team how they want it structured.
-        res.json({
-          data: {},
-        });
+        res.status(404).send({ message: 'Application not found.' });
       } else {
         //let { cohort_name, cohort_type, cohort_slug } = doc.data();
         res.json({
