@@ -17,6 +17,8 @@ const currentApplications = (req, res) => {
           .filter(doc => {
             // Get the date values from each document
             let { dateOpen, dateClosed } = doc.data();
+            let date_open_date, date_closed_date;
+
             [date_open_date, date_closed_date] = [
               dateOpen.toDate(),
               dateClosed.toDate(),
