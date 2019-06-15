@@ -13,9 +13,10 @@
   },
   "author": "",
   "devDependencies": {
-    "jest": "^22.4.4",
+    "jest": "^24.8.0",
     "nodemon": "^1.17.5",
-    "supertest": "^3.1.0"
+    "superagent": "^5.0.9",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "eslint": "^5.16.0",
