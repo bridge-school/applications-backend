@@ -32,11 +32,17 @@ const createApplication = (req, res) => {
 
             res.status(201).json({
               id: docRef.id,
-              message: 'Application successfully added to the database!',
+              message: `Application for ${
+                req.body.cohortName
+              } successfully added to the database!`,
             });
           })
           .catch(error => {
-            res.json({ error });
+            console.log(error);
+            res.status(500).json({
+              message:
+                'Server error, application was not added to the database.',
+            });
           });
       } else {
         res.statusMessage = 'Duplicate Cohort Slug found.';
