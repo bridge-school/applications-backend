@@ -16,12 +16,13 @@ const allApplications = (req, res) => {
         data: snapshot.docs.map(doc => {
           // Destructuring the doc data in order to only pull what
           // we want to display on the index page.
-          let { cohortName, cohortType, cohortSlug } = doc.data();
+          let { cohortName, cohortType, cohortSlug, dateClosed } = doc.data();
           return {
             id: doc.id,
             cohortName,
             cohortType,
             cohortSlug,
+            dateClosed,
           };
         }),
       });
