@@ -25,6 +25,12 @@ const singleApplication = (req, res) => {
           dateResponse.toDate(),
         ];
 
+        [dateOpen, dateClosed, dateResponse] = [
+          dateOpen.toISOString().split('T')[0],
+          dateClosed.toISOString().split('T')[0],
+          dateResponse.toISOString().split('T')[0],
+        ];
+
         res.json({
           data: {
             id: doc.id,
