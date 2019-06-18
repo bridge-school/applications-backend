@@ -7,9 +7,9 @@ const updateApplication = (req, res) => {
   // Convert the string date values into Timestamp objects.
   // Firebase will handle the rest.
   let [dateOpenTstamp, dateClosedTstamp, dateResponseTstamp] = [
-    firestore.Timestamp.fromDate(new Date(dateOpen + 'T00:00:00')),
-    firestore.Timestamp.fromDate(new Date(dateClosed + 'T00:00:00')),
-    firestore.Timestamp.fromDate(new Date(dateResponse + 'T00:00:00')),
+    firestore.Timestamp.fromDate(new Date(dateOpen)),
+    firestore.Timestamp.fromDate(new Date(dateClosed)),
+    firestore.Timestamp.fromDate(new Date(dateResponse)),
   ];
 
   const newBody = { ...req.body };
