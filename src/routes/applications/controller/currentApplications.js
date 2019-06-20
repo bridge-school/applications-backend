@@ -9,6 +9,8 @@ const db = require('../../../db/index');
  */
 const currentApplications = (req, res) => {
   db.collection('cohorts')
+    .orderBy('dateClosed', 'desc')
+    .orderBy('cohortSlug', 'desc')
     .get()
     .then(snapshot => {
       res.json({
